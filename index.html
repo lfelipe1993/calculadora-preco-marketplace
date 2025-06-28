@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Preço de Venda - Mercado Livre e Shopee | DigitalZone</title>
+    <meta name="description"
+        content="Calcule online o preço de venda ideal para produtos em marketplaces como Mercado Livre e Shopee. Considere todas as taxas, impostos, ROI e maximize seu lucro!">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="calculadora preço de venda, precificação marketplace, calcular valor de venda, preço produto mercado livre, calculadora shopee, como calcular preço de venda, precificação online, ROI produto, lucro marketplace, simulador venda mercado livre, simulador shopee, planilha precificação, ferramentas vendedor online">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.digitalzone.com.br/calculadora-de-precos">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Calculadora de Preço de Venda para Marketplaces",
+            "url": "https://www.digitalzone.com.br/calculadora-de-precos",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "All",
+            "description": "Ferramenta online para calcular o preço de venda de produtos no Mercado Livre e Shopee considerando taxas, impostos, ROI e lucro.",
+            "keywords": "calculadora preço de venda, precificação marketplace, mercado livre, shopee, ROI, lucro vendedor"
+        }
+  </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mainarea {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 8px 14px 8px;
+            box-sizing: border-box;
+        }
+
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .col-base,
+        .container {
+            background: #fff;
+            border-radius: 8px;
+            margin-bottom: 19px;
+            box-shadow: 0 3px 15px #ccc3;
+        }
+
+        .col-base {
+            padding: 29px 18px;
+            min-width: 230px;
+            max-width: 335px;
+            flex: 1 1 260px;
+            text-align: center;
+            height: 380px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .form-url {
+            margin-top: 19px;
+            border-top: 1px solid #e2e2e2;
+            padding-top: 13px;
+            width: 100%;
+        }
+
+        .form-url label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 7px;
+            font-size: 0.96em;
+            text-align: left;
+            width: 100%;
+        }
+
+        .form-url input[type="url"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 8px;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        .form-url button {
+            background: #34a853;
+            color: #fff;
+            padding: 11px 0;
+            width: 100%;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            margin-bottom: 0;
+            transition: background 0.18s;
+        }
+
+        .form-url button:hover {
+            background: #247235;
+        }
+
+        .container {
+            padding: 32px 23px 23px;
+            min-width: 280px;
+            max-width: 370px;
+            flex: 1 1 330px;
+            min-height: 380px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 8px;
+            display: block;
+            font-size: 0.97em;
+            text-align: left;
+        }
+
+        input[type="text"].erro {
+            border: 2px solid #dd3333 !important;
+            background: #fff5f4 !important;
+            color: #aa2222;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 11px;
+            margin: 7px 0 15px;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            font-size: 1.04em;
+            box-sizing: border-box;
+            transition: border 0.15s;
+        }
+
+        button {
+            background: #297be6;
+            color: #fff;
+            padding: 13px 0;
+            width: 100%;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.08em;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background 0.19s;
+        }
+
+        button:hover {
+            background: #1850a7;
+        }
+
+        .resultado {
+            background: #e6ffe7;
+            padding: 13px;
+            border-radius: 6px;
+            color: #157a18;
+            margin-top: 12px;
+            font-size: 1.07em;
+        }
+
+        .mini {
+            font-size: .93em;
+            color: #555;
+            margin-bottom: 3px;
+        }
+
+        .titulo {
+            display: block;
+            font-size: 1.17em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            color: #297be6;
+            text-align: center;
+        }
+
+        .erro-validacao {
+            color: #dd3333;
+            margin-top: 5px;
+            font-weight: bold;
+            font-size: .98em;
+            letter-spacing: 0.3px;
+            text-align: left;
+        }
+
+        footer {
+            margin-top: 48px;
+            padding: 24px 0 12px 0;
+            text-align: center;
+            font-size: 1em;
+            color: #444;
+        }
+
+        .footer-icons a {
+            display: inline-block;
+        }
+
+        .flex-row>*:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        /* INÍCIO DO AJUSTE RESPONSIVO FINAL */
+        @media (max-width: 900px) {
+
+            .flex-row {
+                align-items: stretch !important;
+                gap: 0 !important;
+            }
+
+            .col-base,
+            .container {
+                width: 100vw !important;
+                min-width: 100vw !important;
+                max-width: 100vw !important;
+                box-sizing: border-box !important;
+                border-radius: 10px !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                margin-bottom: 13px;
+                height: auto !important;
+                position: static !important;
+                overflow: visible !important;
+            }
+
+        }
+
+
+        /* FIM DO AJUSTE RESPONSIVO FINAL */
+    </style>
+</head>
+
+<body>
+    <div class="flex-row">
+        <!-- Coluna Base: Custo & ROI -->
+        <div class="col-base">
+            <span class="titulo">Dados Básicos</span>
+            <label for="custo_base">Custo do Produto (R$)</label>
+            <input type="number" id="custo_base" min="0" step="0.01" value="1" onchange="clearResultados()"
+                oninput="clearResultados()" cass="money">
+            <label for="roi_base">ROI Esperado (%)</label>
+            <input type="number" id="roi_base" min="0" step="0.01" value="11" onchange="clearResultados()"
+                oninput="clearResultados()" cass="money">
+            <button onclick="calcularVenda(),calcularShopee()">Calcular</button>
+            <div style="color:#888;font-size:0.85em;">
+                <em>Esses valores são usados nos dois cálculos ao lado.</em>
+            </div>
+        </div>
+
+        <!-- Coluna Mercado Livre -->
+        <div class="container">
+            <span class="titulo">Marketplace (Mercado Livre)</span>
+            <label for="taxamp">Taxa do Marketplace (%)</label>
+            <input type="number" id="taxamp" min="0" step="0.01" value="12.0">
+
+            <label for="imposto">Imposto (%)</label>
+            <input type="number" id="imposto" min="0" step="0.01" value="4.00">
+
+            <label for="taxafixa">Taxa Fixa do Marketplace (R$)</label>
+            <input type="number" id="taxafixa" min="0" step="0.01" value="6.50" cass="money">
+
+            <label for="frete">Taxa de Frete (R$)</label>
+            <input type="number" id="frete" min="0" step="0.01" value="0.00" cass="money">
+
+            <!--button onclick="calcularVenda()">Calcular Mercado Livre</button-->
+            <div id="resultado"></div>
+        </div>
+
+        <!-- Coluna Shopee -->
+        <div class="container">
+            <span class="titulo">Shopee</span>
+            <label for="taxaservico_s">Taxa de Serviço (%)</label>
+            <input type="number" id="taxaservico_s" min="0" step="0.01" value="18.50">
+
+            <label for="comissao_s">Comissão (%)</label>
+            <input type="number" id="comissao_s" min="0" step="0.01" value="1.50">
+
+            <label for="imposto_s">Imposto (%)</label>
+            <input type="number" id="imposto_s" min="0" step="0.01" value="4.00">
+
+            <label for="taxafixa_s">Taxa Fixa (R$)</label>
+            <input type="number" id="taxafixa_s" min="0" step="0.01" value="4.00" class="money">
+
+            <label for="frete_s">Taxa de Frete (R$)</label>
+            <input type="number" id="frete_s" min="0" step="0.01" value="0.00" cass="money">
+
+            <!--button onclick="calcularShopee()">Calcular Shopee</button-->
+            <div id="resultado_shopee"></div>
+        </div>
+
+        <footer>
+
+                <strong>Calculadora de Preço de Venda em Marketplaces</strong>
+                <br>
+                Desenvolvido por
+                <a href="https://www.linkedin.com/in/lfelipemgr/" target="_blank"
+                    style="color:#297be6; text-decoration:none; font-weight:600;">Luiz Felipe Mecina Greijo</a>
+                <br>
+                &copy; 2025. Todos os direitos reservados.
+        </footer>
+    </div>
+    <script>
+        // Zera resultados quando altera os campos básicos
+        function clearResultados() {
+            document.getElementById('resultado').innerHTML = '';
+            document.getElementById('resultado_shopee').innerHTML = '';
+        }
+
+        // Mercado Livre
+        function calcularVenda() {
+            const custo = parseFloat(document.getElementById('custo_base').value) || 0;
+            const roi = parseFloat(document.getElementById('roi_base').value) || 0;
+            const taxamp = parseFloat(document.getElementById('taxamp').value) || 0;
+            const imposto = parseFloat(document.getElementById('imposto').value) || 0;
+            const taxafixa = parseFloat(document.getElementById('taxafixa').value) || 0;
+            const frete = parseFloat(document.getElementById('frete').value) || 0;
+
+            if (custo <= 0 || roi < 0) {
+                document.getElementById('resultado').innerHTML =
+                    '<span style="color:#dd3333;">Informe o custo do produto e o ROI desejado!</span>';
+                return;
+            }
+            const valor_recebido = custo * (1 + roi / 100);
+            const percentual_somado = (taxamp + imposto) / 100;
+            const denominador = 1 - percentual_somado;
+
+            if (denominador <= 0) {
+                document.getElementById('resultado').innerHTML =
+                    '<span style="color:red;">A soma das taxas em % não pode ser igual ou superior a 100%.</span>';
+                return;
+            }
+            const valor_venda = (valor_recebido + taxafixa + frete) / denominador;
+
+            document.getElementById('resultado').innerHTML =
+                '<div class="mini">Valor líquido recebido, com ROI desejado:</div>' +
+                '<strong>R$ ' + valor_recebido.toFixed(2) + '</strong><br><br>' +
+                '<div class="mini">Valor que deve ser vendido no marketplace:</div>' +
+                '<strong style="font-size:1.2em;">R$ ' + valor_venda.toFixed(2) + '</strong>';
+        }
+
+        // Shopee
+        function calcularShopee() {
+            const custo = parseFloat(document.getElementById('custo_base').value) || 0;
+            const roi = parseFloat(document.getElementById('roi_base').value) || 0;
+            const taxaservico = parseFloat(document.getElementById('taxaservico_s').value) || 0;
+            const comissao = parseFloat(document.getElementById('comissao_s').value) || 0;
+            const imposto = parseFloat(document.getElementById('imposto_s').value) || 0;
+            const taxafixa = parseFloat(document.getElementById('taxafixa_s').value) || 0;
+            const frete = parseFloat(document.getElementById('frete_s').value) || 0;
+
+            if (custo <= 0 || roi < 0) {
+                document.getElementById('resultado_shopee').innerHTML =
+                    '<span style="color:#dd3333;">Informe o custo do produto e o ROI desejado!</span>';
+                return;
+            }
+
+            const valor_recebido = custo * (1 + roi / 100);
+            const percentual_somado = (taxaservico + comissao + imposto) / 100;
+            const denominador = 1 - percentual_somado;
+
+            if (denominador <= 0) {
+                document.getElementById('resultado_shopee').innerHTML =
+                    '<span style="color:red;">A soma das taxas em % não pode ser igual ou superior a 100%.</span>';
+                return;
+            }
+            const valor_venda = (valor_recebido + taxafixa + frete) / denominador;
+
+            document.getElementById('resultado_shopee').innerHTML =
+                '<div class="mini">Valor líquido recebido, com ROI desejado:</div>' +
+                '<strong>R$ ' + valor_recebido.toFixed(2) + '</strong><br><br>' +
+                '<div class="mini">Valor que deve ser vendido na Shopee:</div>' +
+                '<strong style="font-size:1.2em;">R$ ' + valor_venda.toFixed(2) + '</strong>';
+        }
+    </script>
+
+    <script>
+        // Máscara de moeda
+        document.querySelectorAll('input.money').forEach(function (input) {
+            input.addEventListener('input', function (e) {
+                let v = e.target.value.replace(/\D/g, '');
+                v = (parseInt(v, 10) || 0).toString();
+                while (v.length < 3) v = "0" + v; // para garantir pelo menos 3 dígitos
+                const reais = v.substring(0, v.length - 2);
+                const centavos = v.substring(v.length - 2);
+                let reaisFormatado = reais.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                e.target.value = 'R$ ' + reaisFormatado + ',' + centavos;
+            });
+
+            // Para selecionar tudo ao clicar/focar
+            input.addEventListener('focus', function (e) {
+                setTimeout(() => { e.target.setSelectionRange(e.target.value.length, e.target.value.length); }, 1);
+            });
+        });
+
+        // Função para converter o input mascarado para "número" para cálculo
+        function getValueFromMasked(selector) {
+            const el = document.getElementById(selector);
+            if (!el) return 0;
+            let v = el.value.replace(/\D/g, '');
+            return parseFloat(v) / 100 || 0;
+        }
+    </script>
+
+
+</body>
+
+</html>
