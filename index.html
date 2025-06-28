@@ -252,10 +252,10 @@
         <div class="col-base">
             <span class="titulo">Dados Básicos</span>
             <label for="custo_base">Custo do Produto (R$)</label>
-            <input type="number" id="custo_base" min="0" step="0.01" value="1" onchange="clearResultados()"
+            <input type="number" id="custo_base" min="0" step="0.01" value="1.00" onchange="clearResultados()"
                 oninput="clearResultados()" cass="money">
-            <label for="roi_base">ROI Esperado (%)</label>
-            <input type="number" id="roi_base" min="0" step="0.01" value="11" onchange="clearResultados()"
+            <label for="roi_base">ROI Desejado (%)</label>
+            <input type="number" id="roi_base" min="0" step="0.01" value="10.00" onchange="clearResultados()"
                 oninput="clearResultados()" cass="money">
             <button onclick="calcularVenda(),calcularShopee()">Calcular</button>
             <div style="color:#888;font-size:0.85em;">
