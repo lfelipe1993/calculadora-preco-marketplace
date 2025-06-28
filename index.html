@@ -334,9 +334,10 @@
                 return;
             }
             const valor_recebido = custo * (1 + roi / 100);
+            const margemLucro = valor_recebido - custo;
+            const margemLucroPerc = custo > 0 ? (margemLucro / custo * 100) : 0;
             const percentual_somado = (taxamp + imposto) / 100;
             const denominador = 1 - percentual_somado;
-
             if (denominador <= 0) {
                 document.getElementById('resultado').innerHTML =
                     '<span style="color:red;">A soma das taxas em % não pode ser igual ou superior a 100%.</span>';
@@ -348,7 +349,9 @@
                 '<div class="mini">Valor líquido recebido, com ROI desejado:</div>' +
                 '<strong>R$ ' + valor_recebido.toFixed(2) + '</strong><br><br>' +
                 '<div class="mini">Valor que deve ser vendido no marketplace:</div>' +
-                '<strong style="font-size:1.2em;">R$ ' + valor_venda.toFixed(2) + '</strong>';
+                '<strong style="font-size:1.2em;">R$ ' + valor_venda.toFixed(2) + '</strong><br><br>' +
+                '<div class="mini">Lucro/Margem Bruta:</div>' +
+                '<strong style="color:#008200">R$ ' + margemLucro.toFixed(2) + ' (' + margemLucroPerc.toFixed(2) + '%)</strong>';
         }
 
         // Shopee
@@ -368,6 +371,8 @@
             }
 
             const valor_recebido = custo * (1 + roi / 100);
+            const margemLucro = valor_recebido - custo;
+            const margemLucroPerc = custo > 0 ? (margemLucro / custo * 100) : 0;
             const percentual_somado = (taxaservico + comissao + imposto) / 100;
             const denominador = 1 - percentual_somado;
 
@@ -382,7 +387,9 @@
                 '<div class="mini">Valor líquido recebido, com ROI desejado:</div>' +
                 '<strong>R$ ' + valor_recebido.toFixed(2) + '</strong><br><br>' +
                 '<div class="mini">Valor que deve ser vendido na Shopee:</div>' +
-                '<strong style="font-size:1.2em;">R$ ' + valor_venda.toFixed(2) + '</strong>';
+                '<strong style="font-size:1.2em;">R$ ' + valor_venda.toFixed(2) + '</strong><br><br>' +
+                '<div class="mini">Lucro/Margem Bruta:</div>' +
+                '<strong style="color:#008200">R$ ' + margemLucro.toFixed(2) + ' (' + margemLucroPerc.toFixed(2) + '%)</strong>';
         }
     </script>
 
@@ -414,4 +421,5 @@
         }
     </script>
 </body>
+
 </html>
