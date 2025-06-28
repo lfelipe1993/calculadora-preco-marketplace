@@ -217,7 +217,7 @@
             margin-bottom: 0 !important;
         }
 
-        /* INÍCIO DO AJUSTE RESPONSIVO FINAL */
+        /* INÍCIO DO AJUSTE RESPONSIVO*/
         @media (max-width: 900px) {
 
             .flex-row {
@@ -242,8 +242,7 @@
 
         }
 
-
-        /* FIM DO AJUSTE RESPONSIVO FINAL */
+        /* FIM DO AJUSTE RESPONSIVO */
     </style>
 </head>
 
@@ -279,7 +278,6 @@
             <label for="frete">Taxa de Frete (R$)</label>
             <input type="number" id="frete" min="0" step="0.01" value="0.00" cass="money">
 
-            <!--button onclick="calcularVenda()">Calcular Mercado Livre</button-->
             <div id="resultado"></div>
         </div>
 
@@ -301,19 +299,17 @@
             <label for="frete_s">Taxa de Frete (R$)</label>
             <input type="number" id="frete_s" min="0" step="0.01" value="0.00" cass="money">
 
-            <!--button onclick="calcularShopee()">Calcular Shopee</button-->
             <div id="resultado_shopee"></div>
         </div>
 
         <footer>
-
-                <strong>Calculadora de Preço de Venda em Marketplaces</strong>
-                <br>
-                Desenvolvido por
-                <a href="https://www.linkedin.com/in/lfelipemgr/" target="_blank"
-                    style="color:#297be6; text-decoration:none; font-weight:600;">Luiz Felipe Mecina Greijo</a>
-                <br>
-                &copy; 2025. Todos os direitos reservados.
+            <strong>Calculadora de Preço de Venda em Marketplaces</strong>
+            <br>
+            Desenvolvido por
+            <a href="https://www.linkedin.com/in/lfelipemgr/" target="_blank"
+                style="color:#297be6; text-decoration:none; font-weight:600;">Luiz Felipe Mecina Greijo</a>
+            <br>
+            &copy; 2025. Todos os direitos reservados.
         </footer>
     </div>
     <script>
@@ -417,8 +413,5 @@
             return parseFloat(v) / 100 || 0;
         }
     </script>
-
-
 </body>
-
 </html>
